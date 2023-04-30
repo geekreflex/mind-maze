@@ -6,10 +6,10 @@ const port = process.env.PORT || 9000;
 
 __dirname = path.resolve();
 
-app.use(express.static(path.join(__dirname, '/client/dist')));
+app.use(express.static(path.join(__dirname, '/client/build')));
 app.get('*', (_, res: express.Response) => {
   res.sendFile(
-    path.resolve(__dirname, 'client', 'dist', 'index.html'),
+    path.resolve(__dirname, 'client', 'build', 'index.html'),
     (err) => {
       res.status(500).send(err);
     }
