@@ -4,13 +4,16 @@ import path from 'path';
 const app: Application = express();
 const port = process.env.PORT || 9000;
 
-declare const __dirname: string;
+__dirname = path.resolve();
 
-app.use(express.static(path.join(__dirname, './client/dist')));
+app.use(express.static(path.join(__dirname, '/client/dist')));
 app.get('*', (_, res: express.Response) => {
-  res.sendFile(path.join(__dirname, './client/dist/index.html'), (err) => {
-    res.status(500).send(err);
-  });
+  res.sendFile(
+    path.resolve(__dirname, 'client', 'dist', 'index.html'),
+    (err) => {
+      res.status(500).send(err);
+    }
+  );
 });
 
 app.get(`/api`, (req: express.Request, res: express.Response) => {
