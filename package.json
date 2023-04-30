@@ -6,11 +6,9 @@
   "author": "<Jerry Nwosu> <jerrynwosu007@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/app.js",
-    "client": "yarn start --prefix client",
-    "server": "nodemon --exec ts-node src/app.ts",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
-    "build": "tsc"
+    "build": "cd client && yarn build && cd .. && tsc && yarn start",
+    "start": "cd dist && node app.js",
+    "deploy": "cyclic deploy"
   },
   "dependencies": {
     "cors": "^2.8.5",
