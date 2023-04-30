@@ -6,7 +6,6 @@
   "author": "<Jerry Nwosu> <jerrynwosu007@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "preinstall": "cd client && npm run build",
     "build": "tsc",
     "client": "cd client && yarn dev",
     "server": "nodemon --exec ts-node app.ts",
